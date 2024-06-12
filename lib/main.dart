@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_empty_screens/utils/SemiCircleClipper.dart';
 import 'package:nb_utils/nb_utils.dart';
 
 void main() {
@@ -45,36 +46,33 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Color(0xFF25AAE2),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        body: Stack(
+          alignment: Alignment.center,
           children: [
-            Container(
-              padding: EdgeInsets.all(30),
-              height: 230,
-              decoration: BoxDecoration(color: Color(0xFF23A2D9), shape: BoxShape.circle),
-              child: Image.asset('images/emptyScreen1/mailIn.png'),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                ClipPath(
+                  clipper: SemiCircleClipper(),
+                  child: Container(
+                    height: context.height() * 0.5,
+                    decoration: BoxDecoration(color: Color(0xFFFFC655)),
+                  ),
+                ),
+                150.height,
+                Text('No Notification', style: boldTextStyle(size: 20)),
+                16.height,
+                Text(
+                  "cDisigale",
+                  style: secondaryTextStyle(size: 15),
+                  textAlign: TextAlign.center,
+                ).paddingSymmetric(vertical: 8, horizontal: 60),
+              ],
             ),
-            48.height,
-            Text('Inbox', style: boldTextStyle(size: 20, color: white)),
-            16.height,
-            Text(
-              "cDisigale",
-              style: primaryTextStyle(size: 15, color: white),
-              textAlign: TextAlign.center,
-            ).paddingSymmetric(vertical: 8, horizontal: 60),
-            32.height,
-            FloatingActionButton(
-              child: Icon(Icons.add, color: Colors.blue, size: 30),
-              backgroundColor: white,
-              onPressed: () {
-                toast('Add Mail');
-              },
-            ),
+            Image.asset('images/emptyScreen1/bell.png', height: 180),
           ],
         ),
       ),
     );
   }
 }
-
