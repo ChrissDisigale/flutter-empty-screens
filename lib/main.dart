@@ -17,25 +17,20 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
-      home: const MyHomePage(),
+      home: const EmptyCartScreen(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
+class EmptyCartScreen extends StatefulWidget {
+  static var tag = "/empty_cart1";
+  const EmptyCartScreen({Key? key}) : super(key: key);
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  _EmptyCartScreenState createState() => _EmptyCartScreenState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  void initState() {
-    setStatusBarColor(lightGray);
-    super.initState();
-  }
-
+class _EmptyCartScreenState extends State<EmptyCartScreen> {
   @override
   void dispose() {
     super.dispose();
@@ -46,71 +41,33 @@ class _MyHomePageState extends State<MyHomePage> {
     return SafeArea(
       child: Scaffold(
         body: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Stack(
-              alignment: Alignment.center,
-              children: [
-                ClipPath(
-                  clipper: WaveClipper(),
-                  child: Container(
-                    height: context.height() * 0.65,
-                    decoration: const BoxDecoration(color: lightGray),
-                  ),
-                ),
-                Column(
-                  children: [
-                    120.height,
-                    Image.asset('images/emptyScreen1/allTaskDone.png', height: 240),
-                  ],
-                ),
-              ],
+            Container(
+              height: 230,
+              padding: EdgeInsets.all(16),
+              child: Image.asset('images/emptyScreen1/emptyCart1.png'),
+              decoration: BoxDecoration(color: grey.withOpacity(0.2), shape: BoxShape.circle),
             ),
-            Text('All Task Done!', style: boldTextStyle(size: 20)),
+            70.height,
+            Text('Empty Cart', style: boldTextStyle(size: 20)),
             16.height,
             Text(
               "cDisigale",
-              style: primaryTextStyle(size: 15),
+              style: primaryTextStyle(size: 15, color: Colors.blueGrey),
               textAlign: TextAlign.center,
             ).paddingSymmetric(vertical: 8, horizontal: 60),
-            50.height,
-            AppButton(
-              shapeBorder: RoundedRectangleBorder(borderRadius: radius(30)),
-              color: Color(0xFF2D3E5E),
-              elevation: 10,
-              onTap: () {
-                toast('Add More');
+            32.height,
+            FloatingActionButton(
+              backgroundColor: Color(0xFF2D3E5E),
+              child: Icon(Icons.shopping_cart, size: 30, color: Colors.white),
+              onPressed: () {
+                toast('Add Items');
               },
-              child: Text('Add More', style: boldTextStyle(color: white)).paddingSymmetric(horizontal: 32),
             ),
           ],
         ),
       ),
     );
-  }
-}
-
-class WaveClipper extends CustomClipper<Path> {
-  @override
-  getClip(Size size) {
-    var path = new Path();
-    path.lineTo(0, size.height / 3.25); //Current point to bottom left
-    var firstControlPoint = new Offset(size.width / 4, size.height / 3);
-    var firstEndPoint = new Offset(size.width / 2, size.height / 3 - 60);
-    var secondControlPoint = new Offset(size.width - (size.width / 4), size.height / 4 - 65);
-    var secondEndPoint = new Offset(size.width, size.height / 3 - 40);
-
-    path.quadraticBezierTo(firstControlPoint.dx, firstControlPoint.dy, firstEndPoint.dx, firstEndPoint.dy);
-    path.quadraticBezierTo(secondControlPoint.dx, secondControlPoint.dy, secondEndPoint.dx, secondEndPoint.dy);
-
-    path.lineTo(size.width, size.height / 2.5); //Current point to top right
-    path.lineTo(size.width, 0);
-    path.close();
-    return path;
-  }
-
-  @override
-  bool shouldReclip(CustomClipper oldClipper) {
-    return false;
   }
 }
