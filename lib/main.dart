@@ -17,14 +17,13 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-  final String title;
+  const MyHomePage({super.key});
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -56,7 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   clipper: WaveClipper(),
                   child: Container(
                     height: context.height() * 0.65,
-                    decoration: BoxDecoration(color: lightGray),
+                    decoration: const BoxDecoration(color: lightGray),
                   ),
                 ),
                 Column(
@@ -76,13 +75,13 @@ class _MyHomePageState extends State<MyHomePage> {
             ).paddingSymmetric(vertical: 8, horizontal: 60),
             50.height,
             AppButton(
-              child: Text('Add More', style: boldTextStyle(color: white)).paddingSymmetric(horizontal: 32),
               shapeBorder: RoundedRectangleBorder(borderRadius: radius(30)),
               color: Color(0xFF2D3E5E),
               elevation: 10,
               onTap: () {
                 toast('Add More');
               },
+              child: Text('Add More', style: boldTextStyle(color: white)).paddingSymmetric(horizontal: 32),
             ),
           ],
         ),
