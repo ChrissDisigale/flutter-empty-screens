@@ -45,32 +45,26 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Color(0xFF25AAE2),
         body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            Container(
-              padding: EdgeInsets.all(30),
-              height: 230,
-              decoration: BoxDecoration(color: Color(0xFF23A2D9), shape: BoxShape.circle),
-              child: Image.asset('images/emptyScreen1/mailIn.png'),
-            ),
-            48.height,
-            Text('Inbox', style: boldTextStyle(size: 20, color: white)),
-            16.height,
+            Image.asset('images/emptyScreen1/noPhotos1.png'),
+            32.height,
+            Text('No Photos!', style: boldTextStyle(size: 20)),
+            32.height,
             Text(
               "cDisigale",
-              style: primaryTextStyle(size: 15, color: white),
+              style: primaryTextStyle(size: 15),
               textAlign: TextAlign.center,
             ).paddingSymmetric(vertical: 8, horizontal: 60),
             32.height,
             FloatingActionButton(
-              child: Icon(Icons.add, color: Colors.blue, size: 30),
-              backgroundColor: white,
+              child: Icon(Icons.add, size: 30),
               onPressed: () {
-                toast('Add Mail');
+                toast('Add Photos');
               },
             ),
+            70.height,
           ],
         ),
       ),
