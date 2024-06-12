@@ -45,31 +45,32 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Color(0xFF25AAE2),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
           children: [
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                60.width,
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text('Inbox', style: boldTextStyle(size: 20), textAlign: TextAlign.start),
+                    Text('You have no mail', style: primaryTextStyle(size: 15), textAlign: TextAlign.start),
+                  ],
+                ).expand(),
+                IconButton(onPressed: () {}, icon: Icon(Icons.add)),
+              ],
+            ).paddingOnly(left: 8, right: 8, top: 16),
+            SizedBox(height: context.height() * 0.2),
             Container(
-              padding: EdgeInsets.all(30),
-              height: 230,
-              decoration: BoxDecoration(color: Color(0xFF23A2D9), shape: BoxShape.circle),
-              child: Image.asset('images/emptyScreen1/mailIn.png'),
-            ),
-            48.height,
-            Text('Inbox', style: boldTextStyle(size: 20, color: white)),
-            16.height,
-            Text(
-              "cDisigale",
-              style: primaryTextStyle(size: 15, color: white),
-              textAlign: TextAlign.center,
-            ).paddingSymmetric(vertical: 8, horizontal: 60),
-            32.height,
-            FloatingActionButton(
-              child: Icon(Icons.add, color: Colors.blue, size: 30),
-              backgroundColor: white,
-              onPressed: () {
-                toast('Add Mail');
-              },
+              height: 350,
+              padding: EdgeInsets.all(32),
+              child: Image.asset('images/emptyScreen1/inbox.png'),
+              decoration: BoxDecoration(color: lightGray.withOpacity(0.5), shape: BoxShape.circle),
             ),
           ],
         ),
