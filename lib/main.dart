@@ -17,19 +17,19 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
-      home: const MyHomePage(),
+      home: const NoMailPage(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
+class NoMailPage extends StatefulWidget {
+  const NoMailPage({super.key});
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<NoMailPage> createState() => _NoMailPageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _NoMailPageState extends State<NoMailPage> {
   @override
   void initState() {
     setStatusBarColor(lightGray);
@@ -46,32 +46,34 @@ class _MyHomePageState extends State<MyHomePage> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Color(0xFF25AAE2),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              padding: EdgeInsets.all(30),
-              height: 230,
-              decoration: BoxDecoration(color: Color(0xFF23A2D9), shape: BoxShape.circle),
-              child: Image.asset('images/emptyScreen1/mailIn.png'),
-            ),
-            48.height,
-            Text('Inbox', style: boldTextStyle(size: 20, color: white)),
-            16.height,
-            Text(
-              "cDisigale",
-              style: primaryTextStyle(size: 15, color: white),
-              textAlign: TextAlign.center,
-            ).paddingSymmetric(vertical: 8, horizontal: 60),
-            32.height,
-            FloatingActionButton(
-              child: Icon(Icons.add, color: Colors.blue, size: 30),
-              backgroundColor: white,
-              onPressed: () {
-                toast('Add Mail');
-              },
-            ),
-          ],
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                padding: EdgeInsets.all(30),
+                height: 230,
+                decoration: BoxDecoration(color: Color(0xFF23A2D9), shape: BoxShape.circle),
+                child: Image.asset('images/emptyScreen1/mailIn.png'),
+              ),
+              48.height,
+              Text('Inbox', style: boldTextStyle(size: 20, color: white)),
+              16.height,
+              Text(
+                "cDisigale",
+                style: primaryTextStyle(size: 15, color: white),
+                textAlign: TextAlign.center,
+              ).paddingSymmetric(vertical: 8, horizontal: 60),
+              32.height,
+              FloatingActionButton(
+                child: Icon(Icons.add, color: Colors.blue, size: 30),
+                backgroundColor: white,
+                onPressed: () {
+                  toast('Add Mail');
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );
