@@ -17,19 +17,19 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
-      home: const MyHomePage(),
+      home: const NoBalancePage(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
+class NoBalancePage extends StatefulWidget {
+  const NoBalancePage({super.key});
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<NoBalancePage> createState() => _NoBalancePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _NoBalancePageState extends State<NoBalancePage> {
   @override
   void initState() {
     setStatusBarColor(lightGray);
@@ -45,23 +45,25 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              height: 230,
-              child: Image.asset('images/emptyScreen1/noBalance3.png'),
-              decoration: BoxDecoration(color: grey.withOpacity(0.2), shape: BoxShape.circle),
-            ),
-            70.height,
-            Text('No Balance!', style: boldTextStyle(size: 20)),
-            16.height,
-            Text(
-              "cDisigale",
-              style: secondaryTextStyle(size: 15),
-              textAlign: TextAlign.center,
-            ).paddingSymmetric(vertical: 8, horizontal: 60),
-          ],
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                height: 230,
+                child: Image.asset('images/emptyScreen1/noBalance3.png'),
+                decoration: BoxDecoration(color: grey.withOpacity(0.2), shape: BoxShape.circle),
+              ),
+              70.height,
+              Text('No Balance!', style: boldTextStyle(size: 20)),
+              16.height,
+              Text(
+                "cDisigale",
+                style: secondaryTextStyle(size: 15),
+                textAlign: TextAlign.center,
+              ).paddingSymmetric(vertical: 8, horizontal: 60),
+            ],
+          ),
         ),
       ),
     );
