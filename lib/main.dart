@@ -40,32 +40,34 @@ class _EmptyCartScreenState extends State<EmptyCartScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              height: 230,
-              padding: EdgeInsets.all(16),
-              child: Image.asset('images/emptyScreen1/emptyCart1.png'),
-              decoration: BoxDecoration(color: grey.withOpacity(0.2), shape: BoxShape.circle),
-            ),
-            70.height,
-            Text('Empty Cart', style: boldTextStyle(size: 20)),
-            16.height,
-            Text(
-              "cDisigale",
-              style: primaryTextStyle(size: 15, color: Colors.blueGrey),
-              textAlign: TextAlign.center,
-            ).paddingSymmetric(vertical: 8, horizontal: 60),
-            32.height,
-            FloatingActionButton(
-              backgroundColor: Color(0xFF2D3E5E),
-              child: Icon(Icons.shopping_cart, size: 30, color: Colors.white),
-              onPressed: () {
-                toast('Add Items');
-              },
-            ),
-          ],
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                height: 230,
+                padding: EdgeInsets.all(16),
+                child: Image.asset('images/emptyScreen1/emptyCart1.png'),
+                decoration: BoxDecoration(color: grey.withOpacity(0.2), shape: BoxShape.circle),
+              ),
+              70.height,
+              Text('Empty Cart', style: boldTextStyle(size: 20)),
+              16.height,
+              Text(
+                "cDisigale",
+                style: primaryTextStyle(size: 15, color: Colors.blueGrey),
+                textAlign: TextAlign.center,
+              ).paddingSymmetric(vertical: 8, horizontal: 60),
+              32.height,
+              FloatingActionButton(
+                backgroundColor: Color(0xFF2D3E5E),
+                child: Icon(Icons.shopping_cart, size: 30, color: Colors.white),
+                onPressed: () {
+                  toast('Add Items');
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );
