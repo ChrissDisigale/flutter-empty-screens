@@ -17,19 +17,19 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
-      home: const MyHomePage(),
+      home: const AllTaskDonePage(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
+class AllTaskDonePage extends StatefulWidget {
+  const AllTaskDonePage({super.key});
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<AllTaskDonePage> createState() => _AllTaskDonePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _AllTaskDonePageState extends State<AllTaskDonePage> {
   @override
   void initState() {
     setStatusBarColor(lightGray);
